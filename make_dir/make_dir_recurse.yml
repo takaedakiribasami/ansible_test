@@ -4,8 +4,9 @@
   tasks:
     - name: test directory created
       file:
-        path: "/tmp/test1"
+        path: "/tmp/test1/test1_1/test1_1_1"
         state: directory
         owner: "root"
         group: "root"
         mode: "775"
+        recurse: yes

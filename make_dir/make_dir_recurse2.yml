@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: test directory created
+      file:
+        path: "{{ item.path }}"
+        state: directory
+        owner: "{{ item.owner }}"
+        group: "{{ item.group }}"
+        mode: "{{ item.mode }}"
+      loop:
+        - path: "/tmp/test1/test1_1"
+          owner: "root"
+          group: "root"
+          mode: "775"
+        - path: "/tmp/test1/test1_2"
+          owner: "muknow"
+          group: "muknow"
+          mode: "644"
