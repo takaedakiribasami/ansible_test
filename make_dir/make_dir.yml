@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: test directory created
+      file:
+        path: "/tmp/test1"
+        state: directory
+        owner: "root"
+        group: "root"
+        mode: "655"
