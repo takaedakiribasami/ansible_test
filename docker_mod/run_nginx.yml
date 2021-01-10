@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create nginx
+      community.general.docker_container:
+        name: nginx
+        image: nginx:latest
+        state: started
+        container_default_behavior: compatibility
+        network_mode: bridge
+        published_ports: 0.0.0.0:8080:80
+      vars:
+        ansible_python_interpreter: /root/.pyenv/versions/3.8.1/bin/python

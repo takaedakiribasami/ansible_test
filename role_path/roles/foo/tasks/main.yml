@@ -1,0 +1,4 @@
+---
+- name: output message
+  debug:
+    msg: "foo [roles/foo]"
