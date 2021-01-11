@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: get file stat
+      stat:
+        path: "/tmp/hello_sl.txt"
+      register: stat
+    - debug:
+        msg: "{{ stat }}"
+    - name: get file stat
+      stat:
+        path: "/tmp/hello_sl.txt"
+        follow: yes
+      register: stat
+    - debug:
+        msg: "{{ stat }}"

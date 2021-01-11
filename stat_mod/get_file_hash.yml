@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: get file stat
+      stat:
+        path: "/tmp/hello.txt"
+      register: stat
+    - debug:
+        msg: "{{ stat.stat.checksum }}"
