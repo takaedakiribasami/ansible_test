@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: accept http,https
+      firewalld:
+        zone: public
+        service: "{{ item }}"
+        permanent: yes
+        state: enabled
+      notify: reload firewalld
+      with_items:
+        - http
+        - https
+    - name: accecpt port 8080
+      firewalld:
+        zone: public
+        port: 8080/tcp
+        permanent: yes
+        state: enabled
+      notify: reload firewalld

@@ -1,7 +1,13 @@
 - name: copied hello.txt
   copy:
     src: hello.txt
-    dest: /tmp/hello.txt
+    dest: /tmp/tmp/hello.txt
     mode: 0644
     owner: root
     group: root
+  # copy:
+  #   src: hello.txt
+  #   dest: /tmp/hello.txt
+  #   mode: 0644
+  #   owner: root
+  #   group: root

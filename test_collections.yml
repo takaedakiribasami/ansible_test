@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    # - debug:
+    #     msg: "before test"
+    - name: Test with a message
+      takaedakiribasami.backup.backup:
+        name: hello world
+    # - debug:
+    #     msg: "after test"

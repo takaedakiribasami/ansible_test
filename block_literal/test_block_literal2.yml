@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: check user
+      shell: >-
+        cat /etc/passwd
+        | grep ^root
+        | wc -l
+      register: response
+
+    - debug:
+        msg: >-
+          {% if response.stdout == "1" %}
+          root is exist
+          {% else %}
+          root is not exist
+          {% endif %}

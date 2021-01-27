@@ -1,0 +1,53 @@
+---
+- hosts: all
+  tasks:
+    - debug:
+        msg: "aaaaabbbbbccccc"
+
+    - name: Pattern 1 [ | ]
+      debug:
+        # 各行の改行を保存
+        msg: |
+          aaaaa
+          bbbbb
+          ccccc
+
+    # 各行の改行を保存、最終行の次の行の改行も保存
+    - name: Pattern 2 [ |+ ]
+      debug:
+        msg: |+
+          aaaaa
+          bbbbb
+          ccccc
+
+    # 各行の改行を保存、最終行の改行は取り除く
+    - name: Pattern 3 [ |- ]
+      debug:
+        msg: |-
+          aaaaa
+          bbbbb
+          ccccc
+
+    # 最終行以外の改行を半角スペースに置換
+    - name: Pattern 4 [ > ]
+      debug:
+        msg: >
+          aaaaa
+          bbbbb
+          ccccc
+
+    # 最終行以外の改行を半角スペースに置換、最終行の次の行の改行も保存
+    - name: Pattern 5 [ >+ ]
+      debug:
+        msg: >+
+          aaaaa
+          bbbbb
+          ccccc
+
+    # 各行の改行を半角スペースに置換、最終行の改行は取り除く
+    - name: Pattern 6 [ >- ]
+      debug:
+        msg: >-
+          aaaaa
+          bbbbb
+          ccccc

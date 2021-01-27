@@ -1,0 +1,8 @@
+---
+- name: copied hello.txt
+  copy:
+    src: hello.txt.j2
+    dest: /tmp/hello.txt
+    mode: 0644
+    owner: root
+    group: root
